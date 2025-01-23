@@ -6,6 +6,16 @@ export default function Home() {
     <div className={styles.page}>
       <main className={styles.main}>
         <h1>Welcome to Legacy Tattoo! Professional tattooing in Chicago</h1>
+        <div className={styles.ctas}>
+          <a
+            href="https://www.instagram.com/legacytattoochicago/"
+            target="_blank"
+            className={styles.primary}
+          >
+            Visit Our Instagram
+          </a>
+        </div>
+
         <Image
           className={styles.logo}
           src="/next.svg"
