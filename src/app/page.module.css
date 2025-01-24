@@ -20,7 +20,7 @@
 .logo {
   align-self: center;
   height: auto;
-  width: 460px;
+  width: 550px;
 }
 
 .headLine {
@@ -152,17 +152,6 @@ a.primary {
   a.primary:hover, .formSubmit:hover {
     background: var(--foreground);
     border-color: transparent;
-  }
-
-  a.secondary:hover {
-    /*background: var(--button-secondary-hover);*/
-    color: var(--foreground);
-    border-color: var(--foreground);
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
   }
 }
 
