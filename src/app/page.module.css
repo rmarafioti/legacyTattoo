@@ -32,10 +32,14 @@
   margin-bottom: 6rem;
 }
 
-.tagLine {
+.tagLine, .contactUs {
   font-size: 34px;
   font-weight: 400;
   margin-bottom: 2rem;
+}
+
+.contactUs {
+  text-align: center;
 }
 
 .copy {

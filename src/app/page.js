@@ -40,6 +40,7 @@ export default function Home() {
           </div>
         </section>
         <section>
+          <h3 className={styles.contactUs}>Contact Us</h3>
           <form className={styles.contactForm}>
             <label className={styles.label}>
               Name:{" "}
