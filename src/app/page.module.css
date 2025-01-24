@@ -8,7 +8,7 @@
   justify-items: center;
   min-height: 100svh;
   gap: 64px;
-  font-family: var(--font-geist-sans);
+  font-family: var(--assistant);
 }
 
 .main {
@@ -25,7 +25,8 @@
 
 .headLine {
   font-size: 70px;
-  font-weight: 400;
+  font-weight: 500;
+  margin-bottom: .5rem;
 }
 
 .address {
@@ -43,7 +44,7 @@
 
 .tagLine, .contactUs {
   font-size: 34px;
-  font-weight: 400;
+  font-weight: 600;
   margin-bottom: 2rem;
 }
 
@@ -52,7 +53,8 @@
 }
 
 .copy {
-  width: 520px;
+  font-size: 20px;
+  width: 480px;
   margin-bottom: 6rem;
 }
 
@@ -89,7 +91,7 @@
 
 .messageForm {
   height: 100px;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .formSubmit {
