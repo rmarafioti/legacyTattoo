@@ -10,10 +10,15 @@ export default function Home() {
           alt="Legacy Tattoo Logo"
           width={1981}
           height={1886}
+          priority
           className={styles.logo}
         />
         <h1 className={styles.headLine}>Legacy Tattoo</h1>
         <p className={styles.address}>2828 N. Wilwaukee Ave.</p>
+        <a className={styles.phone} href="tel:+17736979793">
+          {" "}
+          773.697.9793
+        </a>
         <h2 className={styles.tagLine}> Professional tattooing in Chicago</h2>
         <p className={styles.copy}>
           Legacy Tattoo Chicago was opened in 2019 and aims to provide a warm,

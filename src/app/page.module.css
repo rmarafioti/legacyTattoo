@@ -24,11 +24,20 @@
 }
 
 .headLine {
-  font-size: 40px;
+  font-size: 70px;
   font-weight: 400;
 }
 
 .address {
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+.phone {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 4px; 
+  font-size: 20px;
   margin-bottom: 6rem;
 }
 
