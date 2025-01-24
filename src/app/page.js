@@ -10,8 +10,6 @@ export default function Home() {
           alt="Legacy Tattoo Logo"
           width={1981}
           height={1886}
-          blurDataURL="data:..."
-          placeholder="blur"
           className={styles.logo}
         />
         <h1 className={styles.headLine}>Legacy Tattoo</h1>
