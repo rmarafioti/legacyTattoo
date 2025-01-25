@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ContactForm from "./components/ContactForm";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -10,10 +11,15 @@ export default function Home() {
           alt="Legacy Tattoo Logo"
           width={1981}
           height={1886}
+          priority
           className={styles.logo}
         />
         <h1 className={styles.headLine}>Legacy Tattoo</h1>
-        <p className={styles.address}>2828 N. Wilwaukee Ave.</p>
+        <p className={styles.address}>2828 N. Milwaukee Ave.</p>
+        <a className={styles.phone} href="tel:+17736979793">
+          {" "}
+          773.697.9793
+        </a>
         <h2 className={styles.tagLine}> Professional tattooing in Chicago</h2>
         <p className={styles.copy}>
           Legacy Tattoo Chicago was opened in 2019 and aims to provide a warm,
@@ -38,66 +44,7 @@ export default function Home() {
           </div>
         </section>
         <section>
-          <h3 className={styles.contactUs}>Contact Us</h3>
-          <form className={styles.contactForm}>
-            <label className={styles.label}>
-              Name:{" "}
-              {/*{validationError.user_name && (
-          <p className={styles.error}>*Please enter your name*</p>
-        )}*/}
-            </label>
-            <input
-              className={styles.form}
-              type="text"
-              name="user_name"
-              aria-label="user_name"
-              required
-            />
-            <label className={styles.label}>Email: </label>
-            <input
-              className={styles.form}
-              type="email"
-              name="user_email"
-              aria-label="user_email"
-            />
-            <label className={styles.label}>Phone: </label>
-            <input
-              className={styles.form}
-              type="text"
-              name="user_phone"
-              aria-label="user_phone_number"
-              required
-            />
-            <label className={styles.label}>Additional information:</label>
-            <textarea
-              className={styles.messageForm}
-              name="message"
-              aria-label="users_additional_information"
-            />
-            <input
-              className={styles.formSubmit}
-              type="submit"
-              aria-label="form_submit_button"
-            />
-            {/*} {validationError.user_name && (
-        <p className={styles.errorBottom}>*Please enter your name*</p>
-      )}
-      {validationError.user_email && (
-        <p className={styles.errorBottom}>
-          *Please enter a valid email address*
-        </p>
-      )}
-      {validationError.user_phone && (
-        <p className={styles.errorBottom}>
-          *Please enter a valid phone number*
-        </p>
-      )}
-      {messageStatus === "error" && (
-        <p className={styles.errorMessage}>
-          **Message failed to send. Please try again**
-        </p>
-      )}*/}
-          </form>
+          <ContactForm />
         </section>
 
         <div className={styles.ctas}>

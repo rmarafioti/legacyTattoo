@@ -8,7 +8,7 @@
   justify-items: center;
   min-height: 100svh;
   gap: 64px;
-  font-family: var(--font-geist-sans);
+  font-family: var(--assistant);
 }
 
 .main {
@@ -20,21 +20,31 @@
 .logo {
   align-self: center;
   height: auto;
-  width: 460px;
+  width: 550px;
 }
 
 .headLine {
-  font-size: 40px;
-  font-weight: 400;
+  font-size: 70px;
+  font-weight: 500;
+  margin-bottom: .5rem;
 }
 
 .address {
+  font-size: 24px;
+  margin-bottom: 1rem;
+}
+
+.phone {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 4px; 
+  font-size: 20px;
   margin-bottom: 6rem;
 }
 
 .tagLine, .contactUs {
   font-size: 34px;
-  font-weight: 400;
+  font-weight: 600;
   margin-bottom: 2rem;
 }
 
@@ -43,7 +53,8 @@
 }
 
 .copy {
-  width: 520px;
+  font-size: 20px;
+  width: 480px;
   margin-bottom: 6rem;
 }
 
@@ -80,7 +91,7 @@
 
 .messageForm {
   height: 100px;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .formSubmit {
@@ -141,17 +152,6 @@ a.primary {
   a.primary:hover, .formSubmit:hover {
     background: var(--foreground);
     border-color: transparent;
-  }
-
-  a.secondary:hover {
-    /*background: var(--button-secondary-hover);*/
-    color: var(--foreground);
-    border-color: var(--foreground);
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
   }
 }
 
