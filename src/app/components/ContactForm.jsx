@@ -1,9 +1,18 @@
+"use client";
+
+import emailjs from "@emailjs/browser";
+import Cleave from "cleave.js/react";
+import "cleave.js/dist/addons/cleave-phone.us";
+
 import React, { useRef, useState } from "react";
+
 import styles from "@/app/page.module.css";
-import { useRef } from "react";
 
 export default function ContactForm() {
   const ContactForm = useRef();
+  const [messageStatus, setMessageStatus] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
   const inputForm = {
     user_name: "",
     user_email: "",
@@ -13,19 +22,21 @@ export default function ContactForm() {
     user_message: "",
   };
 
-  const artist = [
+  const [formValues, setFormValues] = useState(inputForm);
+
+  const artists = [
     "Brain Clutter",
     "Brain Clutter",
     "Brain Clutter",
     "Brain Clutter",
     "Brain Clutter",
-    "Brain Clutter",
+    "No Preference",
   ];
 
   const preferDays = ["Today", "This week", "This weekend", "At a later date"];
 
   const inputValidationError = {
-    user_name: true,
+    user_name: false,
     user_email: false,
     user_phone: false,
     artist_choice: false,
@@ -33,34 +44,21 @@ export default function ContactForm() {
     user_message: false,
   };
 
-  const validateField = (field, value) => {
-    let isValid = true;
-    switch (field) {
-      case "user_name":
-        isValid = value.trim() !== "";
-        break;
-      case "user_email":
-        isValid = isValidEmail(value);
-        break;
-      case "user_phone":
-        isValid = isValidPhone(value);
-        break;
-      case "artist_choice":
-        isValid = value.trim() !== "";
-        break;
-      case "date_choice":
-        isValid = value.trim() !== "";
-        break;
-      case "user_message":
-        isValid = value.trim() !== "";
-        break;
-      default:
-        break;
-    }
-    setValidationError((prevErrors) => ({
-      ...prevErrors,
-      [field]: !isValid,
-    }));
+  const [validationError, setValidationError] = useState(inputValidationError);
+
+  const validateAllFields = () => {
+    const errors = {};
+    Object.entries(formValues).forEach(([field, value]) => {
+      if (field === "user_email") {
+        errors[field] = !isValidEmail(value);
+      } else if (field === "user_phone") {
+        errors[field] = !isValidPhone(value);
+      } else {
+        errors[field] = value.trim() === "";
+      }
+    });
+    setValidationError(errors);
+    return errors;
   };
 
   // allow the user to change the value of a form field
@@ -70,9 +68,8 @@ export default function ContactForm() {
       ...formValues,
       [name]: value,
     });
-    // Validate field after change
-    validateField(name, value);
   };
+
   //valid email check looks for an '@' and a '.'
   const isValidEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -83,16 +80,15 @@ export default function ContactForm() {
     const phoneDigits = phone.replace(/\D/g, "");
     return phoneDigits.length === 10;
   };
-  //check the form is valid if every validation error has been passed
-  const isFormValid = () => {
-    return Object.values(validationError).every((error) => !error);
-  };
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    if (!isFormValid()) {
-      console.log("Form validation failed:", validationError, fileSizeError);
+    const errors = validateAllFields();
+    const isValid = Object.values(errors).every((error) => !error);
+
+    if (!isValid) {
+      console.log("Form validation failed:", validationError);
       return;
     }
 
@@ -125,19 +121,21 @@ export default function ContactForm() {
   return (
     <>
       <h3 className={styles.contactUs}>Contact Us</h3>
-      <form className={styles.contactForm} ref={ContactForm}>
-        <label className={styles.label}>
-          Name:{" "}
-          {/*{validationError.user_name && (
-          <p className={styles.error}>*Please enter your name*</p>
-        )}*/}
-        </label>
+      <form
+        className={styles.contactForm}
+        ref={ContactForm}
+        onSubmit={sendEmail}
+        encType="multipart/form-data"
+        method="post"
+      >
+        <label className={styles.label}>Name: </label>
         <input
           className={styles.form}
           type="text"
           name="user_name"
           aria-label="user_name"
-          required
+          value={formValues.user_name}
+          onChange={handleInputChange}
         />
         <label className={styles.label}>Email: </label>
         <input
@@ -145,44 +143,108 @@ export default function ContactForm() {
           type="email"
           name="user_email"
           aria-label="user_email"
+          value={formValues.user_email}
+          onChange={handleInputChange}
         />
         <label className={styles.label}>Phone: </label>
-        <input
+        <Cleave
+          options={{ phone: true, phoneRegionCode: "US" }}
           className={styles.form}
-          type="text"
-          name="user_phone"
-          aria-label="user_phone_number"
-          required
+          value={formValues.user_phone}
+          onChange={(e) =>
+            handleInputChange({
+              target: { name: "user_phone", value: e.target.value },
+            })
+          }
+          placeholder="(XXX) XXX-XXXX"
         />
+        <label>Choose An Artist</label>
+        <select
+          className={styles.form}
+          name="artist_choice"
+          value={formValues.artist_choice}
+          aria-label="artist_choice"
+          onChange={(e) =>
+            setFormValues((prevValues) => ({
+              ...prevValues,
+              artist_choice: e.target.value,
+            }))
+          }
+        >
+          <option value="">Artist of choice</option>
+          {artists.map((artist, index) => (
+            <option key={index} value={artist}>
+              {artist}
+            </option>
+          ))}
+        </select>
+
+        <label>I Would Like to Get Tattooed</label>
+        <select
+          className={styles.form}
+          name="date_choice"
+          value={formValues.date_choice}
+          aria-label="date_choice"
+          onChange={(e) =>
+            setFormValues((prevValues) => ({
+              ...prevValues,
+              date_choice: e.target.value,
+            }))
+          }
+        >
+          <option value="">Day of choice</option>
+          {preferDays.map((day, index) => (
+            <option key={index} value={day}>
+              {day}
+            </option>
+          ))}
+        </select>
         <label className={styles.label}>Additional information:</label>
         <textarea
           className={styles.messageForm}
-          name="message"
+          name="user_message"
           aria-label="users_additional_information"
+          value={formValues.user_message}
+          onChange={handleInputChange}
         />
         <input
           className={styles.formSubmit}
           type="submit"
           aria-label="form_submit_button"
+          value={isLoading ? "Sending..." : "Send"}
+          disabled={isLoading}
         />
-        {/*} {validationError.user_name && (
-        <p className={styles.errorBottom}>*Please enter your name*</p>
-      )}
-      {validationError.user_email && (
-        <p className={styles.errorBottom}>
-          *Please enter a valid email address*
-        </p>
-      )}
-      {validationError.user_phone && (
-        <p className={styles.errorBottom}>
-          *Please enter a valid phone number*
-        </p>
-      )}
-      {messageStatus === "error" && (
-        <p className={styles.errorMessage}>
-          **Message failed to send. Please try again**
-        </p>
-      )}*/}
+        {validationError.user_name && (
+          <p className={styles.errorBottom}>*Please enter your name*</p>
+        )}
+        {validationError.user_email && (
+          <p className={styles.errorBottom}>
+            *Please enter a valid email address*
+          </p>
+        )}
+        {validationError.user_phone && (
+          <p className={styles.errorBottom}>
+            *Please enter a valid phone number*
+          </p>
+        )}
+        {validationError.artist_choice && (
+          <p className={styles.errorBottom}>
+            *Please select your artist of choice*
+          </p>
+        )}
+        {validationError.date_choice && (
+          <p className={styles.errorBottom}>*Please select a preferred date*</p>
+        )}
+        {validationError.user_message && (
+          <p className={styles.errorBottom}>
+            *Please provide us additional information about your tattoo request"
+          </p>
+        )}
+        {messageStatus === "error" && (
+          <p className={styles.errorMessage}>
+            **Message failed to send. Please try again**
+          </p>
+        )}
       </form>
     </>
   );
