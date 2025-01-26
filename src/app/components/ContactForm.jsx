@@ -96,10 +96,10 @@ export default function ContactForm() {
 
     emailjs
       .sendForm(
-        "service_...", //unique emailjs code
-        "template_...",
+        "service_...", //email services service ID from emailjs gmail sync
+        "template_...", //template ID from created emailjs template
         ContactForm.current,
-        "N8iJs0OwqbPvxYuRo"
+        "P56-RKtiP9eSdHIHL" //emailjs public key
       )
       .then(
         () => {
