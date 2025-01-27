@@ -7,11 +7,41 @@ import "cleave.js/dist/addons/cleave-phone.us";
 import React, { useRef, useState } from "react";
 
 import styles from "@/app/page.module.css";
+import modal from "@/app/styling/contactform.module.css";
 
 export default function ContactForm() {
   const ContactForm = useRef();
   const [messageStatus, setMessageStatus] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const openModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setIsModalVisible(false);
+  };
+
+  function MessageSentModal() {
+    return (
+      <>
+        {isModalVisible && (
+          <div className={modal.modal}>
+            <div className={modal.modalContent}>
+              <p className={modal.modalHeader}>Message Sent!</p>
+              <p className={modal.modalSubHeader}>
+                We will be in touch and hope to see you for your next tattoo
+              </p>
+              <button className={modal.modalButton} onClick={closeModal}>
+                close
+              </button>
+            </div>
+          </div>
+        )}
+      </>
+    );
+  }
 
   const inputForm = {
     user_name: "",
@@ -112,6 +142,7 @@ export default function ContactForm() {
           setValidationError(inputValidationError);
           ContactForm.current.reset(); // Ensure form is reset
           setFormValues(inputForm);
+          setIsModalVisible(true);
         },
         (error) => {
           console.log("MESSAGE FAILED", error.text);
@@ -250,6 +281,8 @@ export default function ContactForm() {
           </p>
         )}
       </form>
+      {/*} <button onClick={openModal}>Open Modal</button>*/}
+      <MessageSentModal />
     </>
   );
 }
