@@ -25,12 +25,15 @@ export default function ContactForm() {
   const [formValues, setFormValues] = useState(inputForm);
 
   const artists = [
-    "Brain Clutter",
-    "Brain Clutter",
-    "Brain Clutter",
-    "Brain Clutter",
-    "Brain Clutter",
     "No Preference",
+    "Kharlaa",
+    "Scott Fricke",
+    "Chito Tena",
+    "Solory Leda",
+    "Jeff 'Frosty' Frass",
+    "Xan",
+    "Timperfections",
+    "Brian",
   ];
 
   const preferDays = ["Today", "This week", "This weekend", "At a later date"];
@@ -159,7 +162,7 @@ export default function ContactForm() {
           }
           placeholder="(XXX) XXX-XXXX"
         />
-        <label>Choose An Artist</label>
+        <label className={styles.label}>Choose An Artist</label>
         <select
           className={styles.form}
           name="artist_choice"
@@ -180,7 +183,7 @@ export default function ContactForm() {
           ))}
         </select>
 
-        <label>I Would Like to Get Tattooed</label>
+        <label className={styles.label}>I Would Like to Get Tattooed</label>
         <select
           className={styles.form}
           name="date_choice"
