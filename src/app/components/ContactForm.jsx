@@ -7,11 +7,41 @@ import "cleave.js/dist/addons/cleave-phone.us";
 import React, { useRef, useState } from "react";
 
 import styles from "@/app/page.module.css";
+import modal from "@/app/styling/contactform.module.css";
 
 export default function ContactForm() {
   const ContactForm = useRef();
   const [messageStatus, setMessageStatus] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const openModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setIsModalVisible(false);
+  };
+
+  function MessageSentModal() {
+    return (
+      <>
+        {isModalVisible && (
+          <div className={modal.modal}>
+            <div className={modal.modalContent}>
+              <p className={modal.modalHeader}>Message Sent!</p>
+              <p className={modal.modalSubHeader}>
+                We will be in touch and hope to see you for your next tattoo
+              </p>
+              <button className={modal.modalButton} onClick={closeModal}>
+                close
+              </button>
+            </div>
+          </div>
+        )}
+      </>
+    );
+  }
 
   const inputForm = {
     user_name: "",
@@ -25,12 +55,15 @@ export default function ContactForm() {
   const [formValues, setFormValues] = useState(inputForm);
 
   const artists = [
-    "Brain Clutter",
-    "Brain Clutter",
-    "Brain Clutter",
-    "Brain Clutter",
-    "Brain Clutter",
     "No Preference",
+    "Kharlaa",
+    "Scott Fricke",
+    "Chito Tena",
+    "Solory Leda",
+    "Jeff 'Frosty' Frass",
+    "Xan",
+    "Timperfections",
+    "Brian",
   ];
 
   const preferDays = ["Today", "This week", "This weekend", "At a later date"];
@@ -96,10 +129,10 @@ export default function ContactForm() {
 
     emailjs
       .sendForm(
-        "service_...", //unique emailjs code
-        "template_...",
+        "Patdoh-fibtuj-dykpo4", //email services service ID from emailjs gmail sync
+        "template_n87aapr", //template ID from created emailjs template
         ContactForm.current,
-        "N8iJs0OwqbPvxYuRo"
+        "P56-RKtiP9eSdHIHL" //emailjs public key
       )
       .then(
         () => {
@@ -109,6 +142,7 @@ export default function ContactForm() {
           setValidationError(inputValidationError);
           ContactForm.current.reset(); // Ensure form is reset
           setFormValues(inputForm);
+          setIsModalVisible(true);
         },
         (error) => {
           console.log("MESSAGE FAILED", error.text);
@@ -148,6 +182,7 @@ export default function ContactForm() {
         />
         <label className={styles.label}>Phone: </label>
         <Cleave
+          name="user_phone"
           options={{ phone: true, phoneRegionCode: "US" }}
           className={styles.form}
           value={formValues.user_phone}
@@ -158,7 +193,7 @@ export default function ContactForm() {
           }
           placeholder="(XXX) XXX-XXXX"
         />
-        <label>Choose An Artist</label>
+        <label className={styles.label}>Choose An Artist</label>
         <select
           className={styles.form}
           name="artist_choice"
@@ -179,7 +214,7 @@ export default function ContactForm() {
           ))}
         </select>
 
-        <label>I Would Like to Get Tattooed</label>
+        <label className={styles.label}>I Would Like to Get Tattooed</label>
         <select
           className={styles.form}
           name="date_choice"
@@ -246,6 +281,7 @@ export default function ContactForm() {
           </p>
         )}
       </form>
+      <MessageSentModal />
     </>
   );
 }
