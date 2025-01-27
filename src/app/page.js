@@ -15,6 +15,20 @@ export default function Home() {
           className={styles.logo}
         />
         <h1 className={styles.headLine}>Legacy Tattoo</h1>
+        <div>
+          <a
+            href="https://www.instagram.com/legacytattoochicago/"
+            target="_blank"
+          >
+            <Image
+              className={styles.igLogo}
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+              alt="Instagram"
+              width={375}
+              height={375}
+            />
+          </a>
+        </div>
         <p className={styles.address}>2828 N. Milwaukee Ave.</p>
         <a className={styles.phone} href="tel:+17736979793">
           {" "}
@@ -46,16 +60,6 @@ export default function Home() {
         <section>
           <ContactForm />
         </section>
-
-        <div className={styles.ctas}>
-          <a
-            href="https://www.instagram.com/legacytattoochicago/"
-            target="_blank"
-            className={styles.primary}
-          >
-            Visit Our Instagram
-          </a>
-        </div>
       </main>
       <footer className={styles.footer}></footer>
     </div>

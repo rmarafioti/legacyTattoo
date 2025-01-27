@@ -281,7 +281,6 @@ export default function ContactForm() {
           </p>
         )}
       </form>
-      {/*} <button onClick={openModal}>Open Modal</button>*/}
       <MessageSentModal />
     </>
   );
