@@ -193,7 +193,7 @@ export default function ContactForm() {
           }
           placeholder="(XXX) XXX-XXXX"
         />
-        <label className={styles.label}>Choose An Artist</label>
+        <label className={styles.label}>Choose An Artist:</label>
         <select
           className={styles.form}
           name="artist_choice"
@@ -214,7 +214,7 @@ export default function ContactForm() {
           ))}
         </select>
 
-        <label className={styles.label}>I Would Like to Get Tattooed</label>
+        <label className={styles.label}>I Would Like to Get Tattooed:</label>
         <select
           className={styles.form}
           name="date_choice"

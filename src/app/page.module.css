@@ -24,17 +24,20 @@
 }
 
 .headLine {
+  font-family: var(--cactus);
   font-size: 70px;
   font-weight: 500;
   margin-bottom: .5rem;
 }
 
 .address {
+  font-family: var(--cactus);
   font-size: 24px;
   margin-bottom: 1rem;
 }
 
 .phone {
+  font-family: var(--cactus);
   color: var(--foreground);
   text-decoration: underline;
   text-underline-offset: 4px; 
@@ -43,8 +46,9 @@
 }
 
 .tagLine, .contactUs {
+  font-family: var(--cactus);
   font-size: 34px;
-  font-weight: 600;
+  font-weight: normal;
   margin-bottom: 2rem;
 }
 
