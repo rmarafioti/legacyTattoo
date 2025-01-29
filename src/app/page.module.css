@@ -15,6 +15,31 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+
+  background: linear-gradient(black 1%, rgb(65, 0, 65) 100%);
+
+  padding: 1rem 1rem 2rem 1rem;
+
+  padding-bottom: 6rem;
+  width: 100vw;
+}
+
+#middleSection {
+  background: none;
+  background-color: rgb(65, 0, 65);
+}
+
+#contactSection {
+  background: linear-gradient(180deg, rgb(65, 0, 65) 20%, black 100%);
 }
 
 .logo {
@@ -24,53 +49,96 @@
 }
 
 .headLine {
+  font-family: var(--cactus);
   font-size: 70px;
   font-weight: 500;
-  margin-bottom: .5rem;
+  margin: 1rem 0rem 2rem 0rem;
 }
 
 .address {
-  font-size: 24px;
-  margin-bottom: 1rem;
+  font-family: var(--cactus);
+  font-size: 32px;
+  margin-bottom: 0.5rem;
 }
 
 .phone {
+  font-family: var(--cactus);
   color: var(--foreground);
   text-decoration: underline;
-  text-underline-offset: 4px; 
-  font-size: 20px;
-  margin-bottom: 6rem;
+  text-underline-offset: 4px;
+  font-size: 32px;
 }
 
-.tagLine, .contactUs {
-  font-size: 34px;
-  font-weight: 600;
-  margin-bottom: 2rem;
-}
-
-.contactUs {
-  text-align: center;
-}
-
-.copy {
-  font-size: 20px;
-  width: 480px;
-  margin-bottom: 6rem;
-}
-
-.section {
-  margin-bottom: 6rem;
+.hoursConatainer {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding: 2rem;
+  margin: 4rem 0rem 2rem 0rem;
+  border-top: 1px solid gold;
+  border-bottom: 1px solid gold;
+  width: 400px;
 }
 
 .hoursSection {
   display: flex;
   justify-content: space-between;
   width: 360px;
-  margin-bottom: .5rem;
 }
 
 .hours {
   font-size: 20px;
+}
+
+.igLogo,
+.fbLogo {
+  margin-top: 4rem;
+  margin: 4rem 1rem 0rem 1rem;
+  height: 60px;
+  width: auto;
+  filter: drop-shadow(-10px 10px 1rem #420442);
+}
+
+.contactUsConatiner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid gold;
+  width: 480px;
+  padding-bottom: 2rem;
+}
+
+.tagLine,
+.contactUs {
+  text-align: center;
+  font-family: var(--cactus);
+  font-size: 34px;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid gold;
+  width: 480px;
+  padding-bottom: 2rem;
+}
+
+.contactUs {
+  margin-bottom: 0rem;
+  border-bottom: none;
+  width: 480px;
+  padding-bottom: 1rem;
+}
+
+.contactUsSub {
+  font-size: 20px;
+}
+
+.copy {
+  text-align: justify;
+  font-size: 20px;
+  line-height: 2;
+  width: 500px;
+  /*margin-bottom: 6rem;*/
+  padding: 1rem;
 }
 
 .contactForm {
@@ -79,13 +147,15 @@
   width: 460px;
 }
 
-.label, .form {
-  margin-bottom: .5rem;
+.label,
+.form {
+  margin-bottom: 0.5rem;
 }
 
-.form, .messageForm {
+.form,
+.messageForm {
   font-size: 18px;
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 5px;
 }
 
@@ -95,16 +165,13 @@
 }
 
 .formSubmit {
-  background-color: var(--button-primary);
+  background-color: goldenrod;
   border-radius: 128px;
   height: 48px;
   padding: 0 20px;
   border: none;
   border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+  transition: background-color 0.2s;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -120,16 +187,11 @@
   gap: 16px;
 }
 
-.igLogo {
-  height: 60px;
-  width: auto;
-}
-
-
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
-  a.primary:hover, .formSubmit:hover {
-    background: var(--foreground);
+  a.primary:hover,
+  .formSubmit:hover {
+    background: gold;
     border-color: transparent;
   }
 }
@@ -144,17 +206,34 @@
     align-items: center;
   }
 
-  .logo, .tagLine, .copy, .hoursSection, .contactForm, a.primary  {
+  .section {
+    width: 100%;
+  }
+
+  .logo,
+  .tagLine,
+  .copy,
+  .contactForm,
+  a.primary,
+  .hoursConatainer,
+  .contactUsConatiner {
     width: 90vw;
   }
 
-  .headLine {
-    font-size: 50px;
+  .hoursSection {
+    width: 100%;
   }
 
-  .tagLine {
+  .headLine {
+    font-size: 48px;
+    width: 90vw;
+  }
+
+  .tagLine,
+  .address,
+  .phone {
     text-align: center;
     font-size: 30px;
+    width: 90vw;
   }
 }
-
