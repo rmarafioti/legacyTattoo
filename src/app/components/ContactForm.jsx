@@ -15,9 +15,9 @@ export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const openModal = () => {
+  /*const openModal = () => {
     setIsModalVisible(true);
-  };
+  };*/
 
   const closeModal = () => {
     setIsModalVisible(false);
@@ -154,7 +154,12 @@ export default function ContactForm() {
 
   return (
     <>
-      <h3 className={styles.contactUs}>Contact Us</h3>
+      <div className={styles.contactUsConatiner}>
+        <h3 className={styles.contactUs}>Contact Us</h3>
+        <p className={styles.contactUsSub}>
+          Request an appointment with one of our artists
+        </p>
+      </div>
       <form
         className={styles.contactForm}
         ref={ContactForm}

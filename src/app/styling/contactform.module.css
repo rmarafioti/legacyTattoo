@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(44, 41, 41, 0.8);
+    background: rgba(65, 0, 65, .8);
     backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
@@ -14,34 +14,49 @@
   
   .modalContent {
     text-align: center;
-    background: var(--foreground);
-    border: 2px solid var(--foreground);
+    background:  var(--foreground);
+    backdrop-filter: blur(10px); /* Blur effect for glass effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    /*border: 2px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+   
     padding: 1rem;
   }
+  
   
   .modalHeader {
     color: var(--background);
     background: linear-gradient(-45deg, var(--primaryTeal), var(--secondaryCyan));
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 600;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
+    padding-top: 1rem;
+    margin-bottom: .5rem;
   }
   
   .modalSubHeader {
     color: var(--background);
-    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-size: 18px;
+    padding: 0.5rem 1rem 2rem 1rem;
   }
   
   .modalButton {
+    background-color: gold;
     font-size: 18px;
-    padding: 0.5rem;
+    padding: 1rem .5rem 1rem .5rem;
     margin: 1rem;
-    width: 120px;
-    border: 1px solid transparent;
+    width: 200px;
+    border-radius: 128px;
+    transition: background-color 0.2s;
     cursor: pointer;
+    filter: drop-shadow(-1px 1px .1rem #858085);
   }
 
   .modalButton:hover {
-    border: 1px solid var(--background);
+    background-color: gold;
+  }
+
+  @media (max-width: 600px) {
+    .modalContent {
+      width: 100%;
+      padding: .5rem;
+    }
   }
