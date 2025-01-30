@@ -20,11 +20,11 @@ export default function Home() {
           773.697.9793
         </a>
         <section className={styles.section} id={styles.heroSection}>
-          <section className={styles.section} id={styles.middleSection}>
-            <h2 className={styles.tagLine}>
+          <section className={styles.section} id={styles.copySection}>
+            <h1 className={styles.tagLine}>
               {" "}
               Professional Tattooing In Chicago.
-            </h2>
+            </h1>
             <p className={styles.copy}>
               Legacy Tattoo Chicago was opened in 2019 and aims to provide a
               warm, clean and welcoming atmosphere for all of our clients, from
@@ -43,9 +43,9 @@ export default function Home() {
             title="Posts from Instagram"
           ></iframe>
         </section>
-        <section className={styles.section} id={styles.contactSection}>
-          <div className={styles.hoursHolder}>
-            <h3 className={styles.contactUs}>Hours</h3>
+        <div className={styles.contactContainer}>
+          <section className={styles.contactSection}>
+            <h2 className={styles.contactUs}>Hours</h2>
             <section className={styles.hoursConatainer}>
               <div className={styles.hoursSection}>
                 <p className={styles.hours}>Tuesday-Saturday:</p>
@@ -69,11 +69,36 @@ export default function Home() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
-          </div>
-          <div className={styles.contactContainer}>
-            <ContactForm />
-          </div>
-        </section>
+            <a
+              className={styles.logoContainer}
+              href="https://www.instagram.com/legacytattoochicago/"
+              target="_blank"
+            >
+              <Image
+                className={styles.igLogo}
+                src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                alt="Instagram"
+                width={375}
+                height={375}
+              />
+            </a>
+            <a
+              className={styles.logoContainer}
+              href="https://www.facebook.com/legacytattoochicago/"
+              target="_blank"
+            >
+              <Image
+                className={styles.fbLogo}
+                src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg"
+                alt="Facebook"
+                width={375}
+                height={375}
+              />
+            </a>
+          </section>
+          <div className={styles.break}></div>
+          <ContactForm />
+        </div>
       </main>
       <footer className={styles.footer}></footer>
     </div>

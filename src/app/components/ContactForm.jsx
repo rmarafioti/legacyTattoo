@@ -153,13 +153,13 @@ export default function ContactForm() {
   };
 
   return (
-    <>
-      <div className={styles.contactUsConatiner}>
-        <h3 className={styles.contactUs}>Contact Us</h3>
-        <p className={styles.contactUsSub}>
-          Request an appointment with one of our artists.
-        </p>
-      </div>
+    <div className={styles.contactSection}>
+      {/*<div className={styles.contactUsConatiner}>*/}
+      <h3 className={styles.contactUs}>Contact Us</h3>
+      <p className={styles.contactUsSub}>
+        Request an appointment with one of our artists.
+      </p>
+      {/*</div>*/}
       <form
         className={styles.contactForm}
         ref={ContactForm}
@@ -287,6 +287,6 @@ export default function ContactForm() {
         )}
       </form>
       <MessageSentModal />
-    </>
+    </div>
   );
 }
