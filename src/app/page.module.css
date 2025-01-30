@@ -9,6 +9,9 @@
   min-height: 100svh;
   gap: 64px;
   font-family: var(--assistant);
+
+  background: linear-gradient(180deg, black 20%, rgb(65, 0, 65) 100%);
+  min-height: 100vh;
 }
 
 .main {
@@ -18,41 +21,10 @@
   text-align: center;
 }
 
-.section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: left;
-
-  background: linear-gradient(black 1%, rgb(65, 0, 65) 100%);
-
-  padding: 1rem 1rem 2rem 1rem;
-
-  padding-bottom: 6rem;
-  width: 100vw;
-}
-
-#middleSection {
-  background: none;
-  background-color: rgb(65, 0, 65);
-}
-
-#contactSection {
-  background: linear-gradient(180deg, rgb(65, 0, 65) 20%, black 100%);
-}
-
 .logo {
   align-self: center;
   height: auto;
-  width: 550px;
-}
-
-.headLine {
-  font-family: var(--cactus);
-  font-size: 70px;
-  font-weight: 500;
-  margin: 1rem 0rem 2rem 0rem;
+  width: 600px;
 }
 
 .address {
@@ -67,85 +39,129 @@
   text-decoration: underline;
   text-underline-offset: 4px;
   font-size: 32px;
+  margin-bottom: 6rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  padding: 1rem 1rem 6rem 1rem;
+}
+
+#heroSection {
+  flex-direction: row;
+  align-items: flex-start;
+  border-top: 1px solid  rgb(119, 90, 15);
+  border-bottom: 1px solid  rgb(119, 90, 15);
+  padding-bottom: 2rem;
+  padding-top: 4rem;
+  margin-bottom: 0rem;
+  width: 1200px;
+}
+
+#copySection {
+  align-items: flex-start;
+  padding: 0rem 0rem 2rem 0rem;
+}
+
+.tagLine {
+  align-self: center;
+  font-family: var(--assistant);
+  font-size: 30px;
+  font-weight: normal;
+  padding: 0rem 0rem 2rem 0rem;
+}
+
+.copy {
+  text-align: justify;
+  color: gold;
+  font-size: 20px;
+  line-height: 2;
+  padding: 1rem;
+  width: 460px;
+}
+
+.igWidget {
+  width: 665px;
+  height: 395px;
+  overflow: hidden;
+  margin: 0rem 1rem 2rem 4rem;
+}
+
+.contactContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.contactSection {
+  margin: 0rem 4rem 0rem 4rem;
+  padding-top: 4rem;
+}
+
+.contactUs {
+  font-family: var(--cactus);
+  font-size: 32px;
+  font-weight: 500;
+  width: 480px;
+  padding-bottom: 2rem;
 }
 
 .hoursConatainer {
   display: flex;
   flex-direction: column;
-  align-self: center;
-  padding: 2rem;
-  margin: 4rem 0rem 2rem 0rem;
-  border-top: 1px solid gold;
-  border-bottom: 1px solid gold;
-  width: 400px;
+  align-items: center;
+  margin: 0rem 0rem 2rem 0rem;
+  padding-bottom: 2rem;
+  width: 100%;
 }
 
 .hoursSection {
   display: flex;
   justify-content: space-between;
-  width: 360px;
+  border-bottom: 1px solid  rgb(119, 90, 15);
+  width: 480px;
 }
 
 .hours {
+  color: gold;
   font-size: 20px;
+  padding: .4rem;
+}
+
+.map {
+  width: 100%;
+  height: 400px;
+  border-radius: 10px;;
 }
 
 .igLogo,
 .fbLogo {
-  margin-top: 4rem;
-  margin: 4rem 1rem 0rem 1rem;
-  height: 60px;
+  margin: 2rem 1rem 0rem 1rem;
+  height: 50px;
   width: auto;
-  filter: drop-shadow(-10px 10px 1rem #420442);
 }
 
-.contactUsConatiner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid gold;
-  width: 480px;
-  padding-bottom: 2rem;
+.break {
+  border: 0.5px solid rgb(119, 90, 15);
 }
 
-.tagLine,
-.contactUs {
-  text-align: center;
-  font-family: var(--cactus);
-  font-size: 34px;
-  font-weight: 500;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid gold;
-  width: 480px;
-  padding-bottom: 2rem;
-}
-
-.contactUs {
-  margin-bottom: 0rem;
-  border-bottom: none;
-  width: 480px;
-  padding-bottom: 1rem;
-}
+/* form styling */
 
 .contactUsSub {
+  color: gold;
   font-size: 20px;
   text-align: center;
-}
-
-.copy {
-  text-align: justify;
-  font-size: 20px;
-  line-height: 2;
-  width: 500px;
-  /*margin-bottom: 6rem;*/
-  padding: 1rem;
+  padding-bottom: 4rem;
 }
 
 .contactForm {
   display: flex;
   flex-direction: column;
-  width: 460px;
+  text-align: left;
+  width: 100%;
 }
 
 .label,
@@ -191,7 +207,6 @@
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
-  a.primary:hover,
   .formSubmit:hover {
     background: gold;
     border-color: transparent;
@@ -202,6 +217,45 @@
   .page {
     padding: 32px;
     padding-bottom: 80px;
+  }
+
+  .phone {
+   margin-bottom: 2rem;
+  }
+  .tagLine {
+    padding-top: 4rem;
+    margin-top: 0rem;
+    border-top: 1px solid rgb(119, 90, 15);
+  }
+  
+
+  #heroSection, .contactContainer {
+    flex-direction: column;
+    width: 100vw;
+    border-top: none;
+    border-bottom: none;
+    /*border-bottom: 1px solid rgb(119, 90, 15);*/
+  }
+
+  .copy {
+    text-align: justify;
+    color: goldenrod;
+    font-size: 20px;
+    line-height: 1.5;
+    padding: 0rem 1rem 0rem 1rem;
+    width: 100%;
+  }
+
+  .igWidget {
+    width: 100%;
+    height: 235px;
+    margin: 0rem 0rem 4rem 0rem;
+    padding: 0rem;
+    overflow: hidden;
+  }
+
+  .break {
+    border: none;
   }
 
   .main {
@@ -217,15 +271,30 @@
   .copy,
   .contactForm,
   a.primary,
-  .hoursConatainer,
-  .contactUsConatiner {
+  .contactUsConatiner,  .contactContainer  {
     width: 90vw;
   }
-
-  .hoursSection {
-    width: 100%;
+.contactUs {
+  width: 100%;
+}
+  .contactSection, .hoursConatainer {
+    margin: 0rem;
+    width: 90vw;
+  }
+  .hoursConatainer {
+    margin-bottom: 4rem;
+  }
+  .contactSection {
+    border-top: 1px solid rgb(119, 90, 15);
+    margin-bottom: 4rem;
   }
 
+  .hoursSection, .copy {
+    width: 100%;
+  }
+.contactUsSub {
+padding-bottom: 2rem;
+}
   .headLine {
     font-size: 48px;
     width: 90vw;
