@@ -19,6 +19,7 @@ export default function Home() {
           {" "}
           773.697.9793
         </a>
+        <button className={styles.contactButton}>Contact Us</button>
         <section className={styles.section} id={styles.heroSection}>
           <section className={styles.section} id={styles.copySection}>
             <h1 className={styles.tagLine}>
@@ -100,7 +101,45 @@ export default function Home() {
           <ContactForm />
         </div>
       </main>
-      <footer className={styles.footer}></footer>
+      <footer className={styles.footer}>
+        <p className={styles.footerName}>Legacy Tattoo Chicago</p>
+        <p className={styles.footerAddress}>2828 N. Milwaukee Ave.</p>
+        <a className={styles.footerPhone} href="tel:+17736979793">
+          773.697.9793
+        </a>
+        <div>
+          <a
+            className={styles.logoContainerFooter}
+            href="https://www.instagram.com/legacytattoochicago/"
+            target="_blank"
+          >
+            <Image
+              className={styles.igLogoFooter}
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+              alt="Instagram"
+              width={375}
+              height={375}
+            />
+          </a>
+          <a
+            className={styles.logoContainerFooter}
+            href="https://www.facebook.com/legacytattoochicago/"
+            target="_blank"
+          >
+            <Image
+              className={styles.fbLogoFooter}
+              src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg"
+              alt="Facebook"
+              width={375}
+              height={375}
+            />
+          </a>
+        </div>
+        <div className={styles.footerBreak}></div>
+        <p className={styles.footerCopyright}>
+          Site by Marf Inc. copyright 2025
+        </p>
+      </footer>
     </div>
   );
 }
