@@ -62,7 +62,7 @@ export default function ContactForm() {
     "Kharlaa",
     "Scott Fricke",
     "Chito Tena",
-    "Solory Leda",
+    "Solory",
     "Jeff 'Frosty' Frass",
     "Xan",
     "Timperfections",

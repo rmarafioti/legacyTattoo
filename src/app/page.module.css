@@ -1,13 +1,9 @@
 .page {
-  --button-primary: #c9c1c1;
-  --button-secondary-hover: #f2f2f2;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-items: center;
   min-height: 100svh;
-  /*gap: 64px;*/
   font-family: var(--assistant);
 
   background: linear-gradient(180deg, black 20%, rgb(65, 0, 65) 100%);
@@ -244,7 +240,6 @@
 @media (hover: hover) and (pointer: fine) {
   .formSubmit:hover {
     background: gold;
-    border-color: transparent;
   }
 }
 
@@ -253,19 +248,36 @@
     padding: 32px;
     padding-bottom: 80px;
   }
-
+  .igWidget,
+  .section,
+  .contactUs,
+  .hoursConatainer,
+  .hoursSection,
+  .footerBreak {
+    width: 100%;
+  }
+  .logo,
+  .tagLine,
+  .copy,
+  #contactForm,
+  a.primary,
+  .contactUsConatiner,
+  .contactButton,
+  .headLine,
+  .tagLine,
+  .address,
+  .phone {
+    width: 90vw;
+  }
   .phone {
     margin-bottom: 6rem;
   }
-
   .contactButton {
     display: block;
   }
-
   .tagLine {
     border-top: none;
   }
-
   #heroSection,
   .contactContainer {
     flex-direction: column;
@@ -273,107 +285,70 @@
     border-top: none;
     border-bottom: none;
   }
-
   .copy {
     text-align: justify;
     color: goldenrod;
     font-size: 20px;
     line-height: 1.5;
     padding: 0rem 1rem 4rem 1rem;
-    width: 100%;
   }
-
   .igWidget {
-    width: 100%;
     height: 235px;
     margin: 0rem 0rem 0rem 0rem;
     padding: 0rem;
     overflow: hidden;
   }
-
   .break {
     border: none;
   }
-
   .map {
     margin-bottom: 2rem;
   }
-
   .main {
     align-items: center;
   }
-
-  .section {
-    width: 100%;
-  }
-
-  .logo,
-  .tagLine,
-  .copy,
-  .contactForm,
-  a.primary,
-  .contactUsConatiner,
-  .contactContainer,
-  .contactButton {
-    width: 90vw;
-  }
   .contactUs {
     margin-top: 2rem;
-    width: 100%;
   }
-
   .contactSection,
   .hoursConatainer {
     padding-top: 0rem;
-    margin: 0rem;
-    width: 90vw;
+    margin: 0rem 1rem 0rem 1rem;
   }
   .hoursConatainer {
     margin-bottom: 4rem;
+    margin: 0rem;
   }
   .contactSection {
     margin-bottom: 0rem;
-  }
-
-  .hoursSection,
-  .copy {
-    width: 100%;
   }
   .contactUsSub {
     padding-bottom: 2rem;
   }
   .headLine {
     font-size: 48px;
-    width: 90vw;
   }
-
   .tagLine,
   .address,
   .phone {
     text-align: center;
     font-size: 30px;
-    width: 90vw;
   }
-
   .footer {
     border-top: none;
   }
-
   .footerPhone {
     margin-bottom: 4rem;
   }
-
   .igLogoFooter,
   .fbLogoFooter {
-   display: inline;
+    display: inline;
     margin: 0.5rem 1rem 4rem 1rem;
     height: 40px;
     width: auto;
   }
-
   .footerBreak {
     border: 0.5px solid rgb(119, 90, 15);
-    width: 100%;
   }
   .footerCopyright {
     padding-top: 4rem;

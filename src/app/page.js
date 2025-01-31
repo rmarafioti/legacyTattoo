@@ -6,13 +6,6 @@ import ContactForm from "./components/ContactForm";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const [fade, setFade] = useState("fade-in");
-
-  useEffect(() => {
-    setFade("fade-in");
-    return () => setFade("fade-out");
-  }, []);
-
   const scrollToContact = () => {
     setTimeout(() => {
       const contactSection = document.getElementById("contactform");
@@ -21,20 +14,22 @@ export default function Home() {
       } else {
         console.warn("Contact form section not found");
       }
-    }, 200); // Adding a slight delay to ensure the component is rendered
+    }, 200);
   };
 
   return (
-    <div className={`${styles.page} ${[fade]}`}>
+    <div className={`${styles.page} fade-in`}>
       <main className={styles.main}>
-        <Image
-          src="https://res.cloudinary.com/dzpne110u/image/upload/v1737672344/legacy_tattoo/image2_eoz1lg.jpg"
-          alt="Legacy Tattoo Logo"
-          width={1981}
-          height={1886}
-          priority
-          className={styles.logo}
-        />
+        <div>
+          <Image
+            src="https://res.cloudinary.com/dzpne110u/image/upload/v1737672344/legacy_tattoo/image2_eoz1lg.jpg"
+            alt="Legacy Tattoo Logo"
+            width={1981}
+            height={1886}
+            priority
+            className={styles.logo}
+          />
+        </div>
         <p className={styles.address}>2828 N. Milwaukee Ave.</p>
         <a className={styles.phone} href="tel:+17736979793">
           {" "}
@@ -66,6 +61,7 @@ export default function Home() {
             allowtransparency="true"
             frameBorder="0"
             scrolling="no"
+            loading="lazy"
             title="Posts from Instagram"
           ></iframe>
         </section>
@@ -91,6 +87,7 @@ export default function Home() {
               width="600"
               height="450"
               className={styles.map}
+              title="google_map_of_business_location"
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
