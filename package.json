@@ -11,9 +11,11 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "cleave.js": "^1.6.0",
+    "framer-motion": "^12.0.6",
     "next": "15.1.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-scroll-motion": "^0.3.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

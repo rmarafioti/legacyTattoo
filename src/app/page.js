@@ -1,10 +1,31 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import ContactForm from "./components/ContactForm";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const [fade, setFade] = useState("fade-in");
+
+  useEffect(() => {
+    setFade("fade-in");
+    return () => setFade("fade-out");
+  }, []);
+
+  const scrollToContact = () => {
+    setTimeout(() => {
+      const contactSection = document.getElementById("contactform");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        console.warn("Contact form section not found");
+      }
+    }, 200); // Adding a slight delay to ensure the component is rendered
+  };
+
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} ${[fade]}`}>
       <main className={styles.main}>
         <Image
           src="https://res.cloudinary.com/dzpne110u/image/upload/v1737672344/legacy_tattoo/image2_eoz1lg.jpg"
@@ -19,7 +40,11 @@ export default function Home() {
           {" "}
           773.697.9793
         </a>
-        <button className={styles.contactButton}>Contact Us</button>
+
+        <button className={styles.contactButton} onClick={scrollToContact}>
+          Contact Us
+        </button>
+
         <section className={styles.section} id={styles.heroSection}>
           <section className={styles.section} id={styles.copySection}>
             <h1 className={styles.tagLine}>
@@ -107,34 +132,6 @@ export default function Home() {
         <a className={styles.footerPhone} href="tel:+17736979793">
           773.697.9793
         </a>
-        <div>
-          <a
-            className={styles.logoContainerFooter}
-            href="https://www.instagram.com/legacytattoochicago/"
-            target="_blank"
-          >
-            <Image
-              className={styles.igLogoFooter}
-              src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-              alt="Instagram"
-              width={375}
-              height={375}
-            />
-          </a>
-          <a
-            className={styles.logoContainerFooter}
-            href="https://www.facebook.com/legacytattoochicago/"
-            target="_blank"
-          >
-            <Image
-              className={styles.fbLogoFooter}
-              src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg"
-              alt="Facebook"
-              width={375}
-              height={375}
-            />
-          </a>
-        </div>
         <div className={styles.footerBreak}></div>
         <p className={styles.footerCopyright}>
           Site by Marf Inc. copyright 2025

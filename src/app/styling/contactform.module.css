@@ -15,10 +15,6 @@
   .modalContent {
     text-align: center;
     background:  var(--foreground);
-    backdrop-filter: blur(10px); /* Blur effect for glass effect */
-    -webkit-backdrop-filter: blur(10px); /* For Safari support */
-    /*border: 2px solid rgba(255, 255, 255, 0.2); /* Subtle border */
-   
     padding: 1rem;
   }
   
