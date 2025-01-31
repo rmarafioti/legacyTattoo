@@ -134,7 +134,7 @@ export default function ContactForm() {
       .sendForm(
         "Patdoh-fibtuj-dykpo4", //email services service ID from emailjs gmail sync
         "template_n87aapr", //template ID from created emailjs template
-        ContactForm.current,
+        formRef.current,
         "P56-RKtiP9eSdHIHL" //emailjs public key
       )
       .then(
