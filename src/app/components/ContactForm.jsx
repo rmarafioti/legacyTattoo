@@ -1,8 +1,9 @@
 "use client";
-
+import { useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import Cleave from "cleave.js/react";
 import "cleave.js/dist/addons/cleave-phone.us";
+import { motion } from "framer-motion";
 
 import React, { useRef, useState } from "react";
 
@@ -15,10 +16,6 @@ export default function ContactForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  /*const openModal = () => {
-    setIsModalVisible(true);
-  };*/
-
   const closeModal = () => {
     setIsModalVisible(false);
   };
@@ -27,8 +24,14 @@ export default function ContactForm() {
     return (
       <>
         {isModalVisible && (
-          <div className={modal.modal}>
-            <div className={modal.modalContent}>
+          <motion.div
+            className={modal.modal}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.6 }}
+          >
+            <motion.div className={modal.modalContent}>
               <p className={modal.modalHeader}>Message Sent!</p>
               <p className={modal.modalSubHeader}>
                 We will be in touch and hope to see you for your next tattoo
@@ -36,8 +39,8 @@ export default function ContactForm() {
               <button className={modal.modalButton} onClick={closeModal}>
                 close
               </button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         )}
       </>
     );
@@ -153,7 +156,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className={styles.contactSection}>
+    <div className={styles.contactSection} id="contactform">
       <h3 className={styles.contactUs}>Contact Us</h3>
       <p className={styles.contactUsSub}>
         Request an appointment with one of our artists.
