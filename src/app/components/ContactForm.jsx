@@ -5,13 +5,14 @@ import Cleave from "cleave.js/react";
 import "cleave.js/dist/addons/cleave-phone.us";
 import { motion } from "framer-motion";
 
-import React, { useRef, useState } from "react";
+import React, { useState, useRef } from "react";
 
 import styles from "@/app/page.module.css";
 import modal from "@/app/styling/contactform.module.css";
 
 export default function ContactForm() {
-  /*const [messageStatus, setMessageStatus] = useState(null);*/
+  const formRef = useRef();
+  const [messageStatus, setMessageStatus] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -142,7 +143,7 @@ export default function ContactForm() {
           setMessageStatus("success");
           setIsLoading(false);
           setValidationError(inputValidationError);
-          ContactForm.current.reset(); // Ensure form is reset
+          formRef.current.reset();
           setFormValues(inputForm);
           setIsModalVisible(true);
         },
@@ -155,14 +156,14 @@ export default function ContactForm() {
   };
 
   return (
-    <div className={styles.contactSection}>
+    <div className={styles.contactSection} id="contactform">
       <h3 className={styles.contactUs}>Contact Us</h3>
       <p className={styles.contactUsSub}>
         Request an appointment with one of our artists.
       </p>
       <form
         className={styles.contactForm}
-        ref={ContactForm}
+        ref={formRef}
         onSubmit={sendEmail}
         encType="multipart/form-data"
         method="post"

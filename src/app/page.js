@@ -13,6 +13,17 @@ export default function Home() {
     return () => setFade("fade-out");
   }, []);
 
+  const scrollToContact = () => {
+    setTimeout(() => {
+      const contactSection = document.getElementById("contactform");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        console.warn("Contact form section not found");
+      }
+    }, 200); // Adding a slight delay to ensure the component is rendered
+  };
+
   return (
     <div className={`${styles.page} ${[fade]}`}>
       <main className={styles.main}>
@@ -30,7 +41,9 @@ export default function Home() {
           773.697.9793
         </a>
 
-        <button className={styles.contactButton}>Contact Us</button>
+        <button className={styles.contactButton} onClick={scrollToContact}>
+          Contact Us
+        </button>
 
         <section className={styles.section} id={styles.heroSection}>
           <section className={styles.section} id={styles.copySection}>
