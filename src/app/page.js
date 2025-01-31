@@ -1,6 +1,6 @@
 "use client";
+
 import { useEffect, useState } from "react";
-import { Link } from "react-scroll";
 import Image from "next/image";
 import ContactForm from "./components/ContactForm";
 import styles from "./page.module.css";
@@ -29,9 +29,9 @@ export default function Home() {
           {" "}
           773.697.9793
         </a>
-        <Link to="contactform" smooth={true} duration={500}>
-          <button className={styles.contactButton}>Contact Us</button>
-        </Link>
+
+        <button className={styles.contactButton}>Contact Us</button>
+
         <section className={styles.section} id={styles.heroSection}>
           <section className={styles.section} id={styles.copySection}>
             <h1 className={styles.tagLine}>

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+
 import emailjs from "@emailjs/browser";
 import Cleave from "cleave.js/react";
 import "cleave.js/dist/addons/cleave-phone.us";
@@ -11,8 +11,7 @@ import styles from "@/app/page.module.css";
 import modal from "@/app/styling/contactform.module.css";
 
 export default function ContactForm() {
-  const ContactForm = useRef();
-  const [messageStatus, setMessageStatus] = useState(null);
+  /*const [messageStatus, setMessageStatus] = useState(null);*/
   const [isLoading, setIsLoading] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -156,7 +155,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className={styles.contactSection} id="contactform">
+    <div className={styles.contactSection}>
       <h3 className={styles.contactUs}>Contact Us</h3>
       <p className={styles.contactUsSub}>
         Request an appointment with one of our artists.
