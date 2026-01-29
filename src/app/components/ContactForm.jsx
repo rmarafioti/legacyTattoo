@@ -61,8 +61,8 @@ export default function ContactForm() {
     "No Preference",
     "Kharlaa",
     "Scott Fricke",
-    "Chito Tena",
-    "Solory",
+    "Andy Coe",
+    "Trent P",
     "Jeff 'Frosty' Frass",
     "Xan",
     "Timperfections",
@@ -135,7 +135,7 @@ export default function ContactForm() {
         "Patdoh-fibtuj-dykpo4", //email services service ID from emailjs gmail sync
         "template_n87aapr", //template ID from created emailjs template
         formRef.current,
-        "P56-RKtiP9eSdHIHL" //emailjs public key
+        "P56-RKtiP9eSdHIHL", //emailjs public key
       )
       .then(
         () => {
@@ -151,7 +151,7 @@ export default function ContactForm() {
           console.log("MESSAGE FAILED", error.text);
           setMessageStatus("error");
           setIsLoading(false);
-        }
+        },
       );
   };
 
